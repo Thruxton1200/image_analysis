@@ -1,4 +1,5 @@
 #include "analysis.h"
+#include "rawfile.h"
 
 void test();
 

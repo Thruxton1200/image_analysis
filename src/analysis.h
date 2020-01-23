@@ -7,9 +7,6 @@
 #include <cmath>
 
 // ----- template functions ----- //
-template <typename T> void write_rawfile(std::string fname, std::vector<T>& image);
-template <typename T> void read_rawfile (std::string fname, std::vector<T>& image);
-
 template <typename T> T get_average(std::vector<T>& data);
 template <typename T> T get_dispersion(std::vector<T>& data);
 template <typename T> T get_unbiased_dispersion(std::vector<T>& data);
@@ -24,21 +21,6 @@ template <typename T> T get_ssim(std::vector<T>& data1, std::vector<T>& data2, T
 template <typename T> T get_psnr(std::vector<T>& data1, std::vector<T>& data2);
 
 // ----- template functions ---- //
-template <typename T> void write_rawfile(std::string fname, std::vector<T>& image)
-{
-    std::ofstream ofs(fname.c_str()); 
-    if (!ofs) std::cerr << "Failed to open " << fname << std::endl;
-    else { ofs.write(reinterpret_cast<char*>(&image[0]), sizeof(T) * image.size()); }
-}
-
-template <typename T> void read_rawfile (std::string fname, std::vector<T>& image)
-{
-    std::ifstream ifs(fname.c_str());
-    if (!ifs) std::cerr << "Failed to open " << fname << std::endl;
-    else { ifs.read(reinterpret_cast<char*>(&image[0]), sizeof(T) * image.size()); }
-}
-
-
 template <typename T> T get_average(std::vector<T>& data) { return std::accumulate(data.begin(), data.end(), 0.) / data.size(); }
 
 template <typename T> T get_dispersion(std::vector<T>& data)
