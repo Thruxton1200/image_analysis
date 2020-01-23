@@ -1,5 +1,5 @@
 *~
 *.sw
 *.raw
-*.o
-*.out
+/src/*.o
+/src/*.out
