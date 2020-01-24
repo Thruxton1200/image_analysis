@@ -19,6 +19,7 @@ template <typename T> T calculate_inner_product(std::vector<T>& data1, std::vect
 template <typename T> void scale_pixel_value(std::vector<T>& data1, std::vector<T>& data2);
 template <typename T> T get_ssim(std::vector<T>& data1, std::vector<T>& data2, T c1, T c2);
 template <typename T> T get_psnr(std::vector<T>& data1, std::vector<T>& data2);
+template <typename T> T get_total_value(std::vector<T>& data);
 
 // ----- template functions ---- //
 template <typename T> T get_average(std::vector<T>& data) { return std::accumulate(data.begin(), data.end(), 0.) / data.size(); }
@@ -122,3 +123,5 @@ template <typename T> T get_psnr(std::vector<T>& data1, std::vector<T>& data2)
 
     return psnr; 
 }
+
+template <typename T> T get_total_value(std::vector<T>& data) { return std::accumulate(data.begin(), data.end(), 0.); }
